@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>Twitter Search</title>
+
+  <!-- see http://www.bootstrapcdn.com -->
+  <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/superhero/bootstrap.min.css" rel="stylesheet">
+  <!-- <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/cerulean/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/cyborg/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/amelia/bootstrap.min.css" rel="stylesheet"> -->
+  <!-- <link href="//netdna.bootstrapcdn.com/bootswatch/2.1.0/slate/bootstrap.min.css" rel="stylesheet"> -->
+  
+</head>
+<body>
+
+<div class="container">
+
+  <h1>Twitter Search</h1>
+
+  <form method="GET" class="well">
+    <input type="text" class="pull-right" name="query" placeholder="Search for..." value="<%= @query %>" />
+  </form>
+
+  <h3>
+    Found <%= @tweets.count %> tweets
+  </h3>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <td>Image</td>
+        <td>Username</td>
+        <td>Tweet Message</td>
+      </tr>
+    </thead>
+    <tbody>
+      <% for tweet in @tweets do %>
+        <tr>
+          <td><img src="<%= tweet.profile_image_url %>" /></td>
+          <td><%= tweet.from_user %></td>
+          <td><%= tweet.text %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>
